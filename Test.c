@@ -1,238 +1,308 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+﻿#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
-#include <ctype.h>
-#include<assert.h>
-#include<string.h>
-#include<errno.h>
+#include<stdlib.h>
 
+
+void GetMemory(char** p)
+{
+	*p = (char*)malloc(100);
+}
+
+void Test(void)
+{
+	char* str = NULL;
+	GetMemory(&str);
+	strcpy(str, "hello world");
+	printf(str);
+
+	free(str);
+	str = NULL;
+}
 
 int main() {
-	int str[] = { 1,2,3,4,5,6 };
-	int str2[] = { 1,6,3,4,5,6 };
-
-	printf("%d", memcmp(str2, str, 12));
-	
+	Test();
 	return 0;
 }
-//void* My_memmove(void* dest, const void* src, size_t num) {
-//	void* ret = dest;
-//	if (dest < src) {
-//		while (num--) {
-//			*(char*)dest = *(char*)src;
-//			((char*)dest)++;
-//			((const char*)src)++;
+
+//int main() {
 //
+//	//int*p = (int*)malloc(5 * sizeof(int));
+//	int* p = (int*)calloc(5 , sizeof(int));
+//	if (p == NULL) {
+//		perror("calloc");
+//		return 1;
+//	}
+//	
+//	for (int i = 0; i < 5; i++) {
+//		*(p + i) = i + 1;
+//	}
+//
+//	int* ptr;
+//	ptr = realloc(p, 999999999999999999 * sizeof(int));
+//	if (ptr != NULL) {
+//		p = ptr;
+//
+//		for (int i = 0; i < 10; i++) {
+//			*(p + i) = i + 1;
 //		}
+//		for (int i = 0; i < 10; i++) {
+//			printf("%d ", *(p + i));
+//		}
+//
+//		free(p);
+//		p = NULL;
+//
 //	}
 //	else {
-//		while (num--) {
-//			*((char*)dest+num) = *((char*)src + num);
-//
+//		perror("ralloc");
+//		for (int i = 0; i < 5; i++) {
+//			*(p + i) = i + 20;
 //		}
-//	}
-//	return ret;
-//}
-//
-//int main() {
-//
-//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-//		My_memmove(arr , arr +2, 20);
-//		for (int i = 0; i < 10; i++) {
-//		printf("%d ", arr[i]);
-//		
+//		free(p);
+//		p = NULL;
 //	}
 //
-//		
-//	return 0;
-//
-//}
-
-//void *My_memcpy( void* str, void* str2, size_t num) {
+//	ptr = NULL;
 //	
-//	assert(str && str2);
-//	/*for (int i = 0; i < num; i++) {
-//		*( (char*)str + i) = *((char*)str2 + i);
-//
-//	}
-// */
-//	void* ret = str;
-//	while (num--) {
-//		*(char*)str = *(char*)str2;
-//		((char*)str)++;
-//		((char*)str2)++;
-//	}
-//	return ret;
-//}
-
-// void* my_memcpy(void* dest, void* src, size_t num) {
-//	void* ret = dest;
-//	int i = 0; 
-//	assert(dest && src); 
-//	while (num--) {
-//		*(char*)dest = *(char*)src; 
-//		((char*)src)++;
-//		((char*)dest)++;
-//	}
-//	return ret;
-//}
-
-//int main() {
-//	short arr[] = { 1,2,3,4,5,6,7 }; 
-//	short arr1[20] = { 0 };
-//
-//
-//	for (int i = 0; i < 20; i++) {
-//		printf("%d ", *((short *)My_memcpy(arr1, arr, 10)+i));
-//		
-//	}
 //	return 0;
 //}
-//
 
 //int main() {
-//	printf("%s\n", strerror(1));
-//	perror("���");
-//	return 0;
-//}
-//int main() {
 //
-//	char arr[] = "13j.kjl89@sdlfkj#kdfj;98";
-//	char arr1[] = ". %";
 //
-//	char* str = NULL;
-//	/*for (str = strtok(arr, arr1); str != NULL; str = strtok(NULL, arr1)) {
-//		printf("%s", str);
-//	}*/
+//	union u
+//	{
+//		int i;
+//		char a;
+//	};
 //
-//	str = strtok(arr, arr1);
-//	printf("%s\n", str);
-//	str = strtok(NULL, arr1);
-//	printf("%s", str);
+//	union u u;
+//
+//
+//	enum day
+//	{
+//		mon = 1,tues,wed,thur,fri,saat,sun
+//	};
+//
+//	enum day d = 0;
+//
+//	printf("%d", wed);
 //
 //	return 0;
 //}
 
-//int My_strcmp(const char* arr1, const char* arr2) {
-//
-//	while ((*arr1 == *arr2) && *arr1 && *arr2) { arr2++; arr1++;
-//}
-//	return *arr1 - *arr2;
-//}
-//
-//
-//char* My_strstr( const char*arr1, const char*arr2) {
-//	const char* cur = arr1;
-//	const char* s1, * s2;
-//
-//	if (!*arr2) {
-//		return (char*)arr1;
-//	}
-//	while (*cur) {
-//		s1 = cur;
-//		s2 = arr2;
-//		while (*s1!='\0'&& *s2 != '\0' &&* s1 == *s2) {
-//			s1++;
-//			s2++;
-//		}
-//		if (*s2 == '\0') {
-//			return (char*)cur;
-//		}
-//		cur++;
-//	}
-//	return NULL;
-//
-//}
 //int main() {
-//	const char* arr1 = "Hello LIULIAN HAHAHA hahahah";
-//	char arr2[] = "abcdefghijk";
-//	char arr3[] = "cde";
 //
-//	 char* pch = My_strstr(arr2, arr3);
-//	
-//	printf("%s\n", pch);
-//	//printf("%d", strncmp(arr2, arr1,4));
+//	union
+//	{
+//		int i;
+//		char j;
+//	}n;
 //
-//	//int a = 1;
-//	//printf("%d", (a = 1 - 9));
+//	n.i = 1;
+//	n.j = 0x00000002;
+//	printf("%d ", n.j);//取得的是低地址
+//
 //	return 0;
 //}
-//char* My_strcpy( char*dest ,const char*src) {
-//	char* ret = dest;
-//	assert(dest && src);
-//	int i = 0;
-//	while (*(dest++) = *(src++)) {
-//		
-//		//printf("%c", (*dest = *src));
-//
-//	}
-//
-//	return ret;
-//}
-//
-//
-//char* My_strcat( char*dest,const char*src) {
-//	char* ret = dest;
-//	assert(dest && src);
-//	while (*(dest))dest++;
-//	while ((*(dest++) = *(src++)));
-//	return ret;
-//}
-//
-//
-//int main() {
-//	const char* arr1 = "abc";
-//    char arr2[20] = "def";
-//	//printf("%s", My_strcpy(arr2, arr1));
-//	//printf("%c", *arr2 = *arr1);
-//	/*int a = 3;
-//	a++;
-//	printf("%d", a);*/
-//
-//	printf("%s",My_strcat(arr2, arr1));
-//	return 0;
-//}
-//size_t My_strlen( const char* str) {
-//	assert(str);
-//	if (*str == '\0') {
-//		return 0;
-//	}
-//	return 1 + My_strlen(str + 1);
-//}
-//
-//
-//int main() {
-//	char arr[] = "aaaaaaaasdf";
-//	int i = 0;
-//	while(*(arr+i)) {
-//		i++;
-//	}
-//	printf("%d\n", (arr + i) - arr);
-//	printf("%d", My_strlen(arr));
-//	return 0;
-//}
-//int main()
+
+
+
+//struct 
 //{
-//    int i = 0;
-//    char str[] = "first line \n second line \n";
-//    while (*(str+i)) {
-//        if (isspace(*(str + i))) {
-//            *(str + i) = '*';
+//	int a;
+//}s;
 //
-//        }
-//        i++;
-//    }
-//    printf("%s", str);
-//    return 0;
+//int main() {
+//
+//
+//	s.a = 1;
+//
+//	return 0;
+//}
+
+
+
+
+
+//struct gift_list
+//{
+//	int stock_number;//库存量
+//	double price; //定价
+//	int item_type;//商品类型
+//
+//	union {
+//		struct
+//		{
+//			char title[20];//书名
+//			char author[20];//作者
+//			int num_pages;//⻚数
+//		}book;
+//		struct
+//		{
+//			char design[30];//设计
+//		}mug;
+//		struct
+//		{
+//			char design[30];//设计
+//			int colors;//颜⾊
+//			int sizes;//尺⼨
+//		}shirt;
+//	}item;
+//};
+//
+//int main() {
+//	struct gift_list  gift = { .item.book.title = "红龙梦",
+//		.item.book.author = "罗贯中",.item.book.num_pages = 100 };
+//
+//	gift.item.book.num_pages = 99;
+//
+//	printf("%s %s %d", gift.item.book.title,
+//		gift.item.book.author,
+//		gift.item.book.num_pages);
+//
+//
+//	return 0;
+//}
+
+
+//union Un2
+//{
+//	short c[7];
+//	int i;
+//};
+//
+//int main() {
+//	union Un2 u = {0};
+//	printf("%zd", sizeof(union Un2));
+//	return 0;
+//}
+
+
+//struct s
+//{
+//	int a;
+//	char b;
+//	char c[9];
+//};
+//
+//
+//int main() {
+//	struct s s = { .c = "ald"  };
+//	s.a = 1;
+//	s.b = 'a';
+//	s.c = { "ald" };
+//	printf("%s", s.c);
+//	return 0;
 //}
 //int main() {
-//	char arr[] = "I am Student";
-//	int i = 0;
-//	while (*(arr+i)) {
-//		if (*(arr + i) >= 'a' && *(arr + i) <= 'z') {
-//			*(arr + i) -= 32;
-//		}
-//		i++;
+//    // 定义匿名结构体
+//    struct {
+//        int x;
+//        int y;
+//    } point;
+//
+//    // 定义指针并赋值
+//    struct { int x; int y; } *p = &point;
+//
+//    // 通过指针赋值
+//    p->x = 12;
+//    p->y = 24;
+//
+//    printf("x = %d, y = %d\n", p->x, p->y);
+//}
+
+//struct s
+//{
+//	int a ;
+//	char b;
+//	char c[9];
+//}U2, U = { 1,'U',{"abcderg"} };
+//
+//U = { .a = 1,'U',{"abcderg"} };
+//
+//
+//
+//
+//struct
+//{
+//	int a;
+//	char b;
+//	char c[9];
+//};
+//
+//int main() {
+//	U2 = U;
+//	printf("%d %c %s", U2.a, U2.b, U2.c);
+//
+//	U.a = 2;
+//	U.b = 'U';
+//	U.c[9] = "abcderg";
+//
+//
+//	/*struct s s = { 1,'k',{"abcderg"} };
+//	printf("%d %c %s", s.a, s.b, s.c);
+//	printf("\n");
+//	struct s s1 = { 1,'P',{"higklnm"} };
+//	s = s1;
+//	printf("%d %c %s", s.a, s.b, s.c);
+//	printf("\n");
+//
+//	s.b = 'o';
+//	printf("%d %c %s", s.a, s.b, s.c);
+//	printf("\n");
+//
+//*/
+//
+//
+//
+//	return 0;
+//}
+//typedef struct s1
+//{
+//	char b;
+//	int a[6];
+//
+//}s1;
+//
+//void print(s1 * p) {
+//	printf("%c\n", p->b);
+//	for (int i = 0; i < 6; i++) {
+//		printf("%d\n", p->a[i]);
 //	}
-//	printf("%s", arr);
+//}
+//int main() {
+//	s1 s = { .b = 'M',{1,2,3,4,5,6} };
+//	print(&s);
+//	return 0;
+//}
+//typedef struct 
+//{
+//	int data;
+//	struct Node* next;
+//} Node;
+//
+//int main() {
+//
+//	/*stu.id = 'v';
+//	stu.age = 9;
+//	stu.name[100] = "xiao";*/
+//	Node m = { 6,NULL };
+//	Node n = { 3,&m };
+//
+//	printf("%d ",n.next->data);
+//
+//	return 0;
+//}
+
+//int main() {
+//	/*int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int a = 99;*/
+//
+//	int n = 0x00000001;
+//
+//
+//	char* p = &n;
+//	printf("%d", (char)n);
 //	return 0;
 //}
