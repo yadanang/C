@@ -1,308 +1,129 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
+#include<errno.h>
 #include<stdlib.h>
 
-
-void GetMemory(char** p)
-{
-	*p = (char*)malloc(100);
-}
-
-void Test(void)
-{
-	char* str = NULL;
-	GetMemory(&str);
-	strcpy(str, "hello world");
-	printf(str);
-
-	free(str);
-	str = NULL;
-}
+#define forever for(;;){ printf("hahaha");}
+#define print printf("alds\
+					hjf\
+					lasdkjf;f fffffffff\
+					fdkljsa\
+					dsfa");
+#define M 100
+#define SQ(x) ((M) + (x) + (x))
 
 int main() {
-	Test();
+	int a = 5;
+	
+	printf("%d ", SQ(5));
+
 	return 0;
 }
 
-//int main() {
-//
-//	//int*p = (int*)malloc(5 * sizeof(int));
-//	int* p = (int*)calloc(5 , sizeof(int));
-//	if (p == NULL) {
-//		perror("calloc");
-//		return 1;
-//	}
-//	
-//	for (int i = 0; i < 5; i++) {
-//		*(p + i) = i + 1;
-//	}
-//
-//	int* ptr;
-//	ptr = realloc(p, 999999999999999999 * sizeof(int));
-//	if (ptr != NULL) {
-//		p = ptr;
-//
-//		for (int i = 0; i < 10; i++) {
-//			*(p + i) = i + 1;
-//		}
-//		for (int i = 0; i < 10; i++) {
-//			printf("%d ", *(p + i));
-//		}
-//
-//		free(p);
-//		p = NULL;
-//
-//	}
-//	else {
-//		perror("ralloc");
-//		for (int i = 0; i < 5; i++) {
-//			*(p + i) = i + 20;
-//		}
-//		free(p);
-//		p = NULL;
-//	}
-//
-//	ptr = NULL;
-//	
-//	return 0;
-//}
 
-//int main() {
-//
-//
-//	union u
+
+
+//int main(void)
+//{
+//	int c; // 注意：int，⾮char，要求处理EOF
+//	FILE* fp = fopen("test.txt", "w");
+//	if (!fp) {
+//		perror("File opening failed");
+//		return EXIT_FAILURE;
+//	}
+//	//fgetc 当读取失败的时候或者遇到⽂件结束的时候，都会返回EOF
+//	while ((c = fgetc(fp)) != EOF) // 标准C I/O读取⽂件循环
 //	{
-//		int i;
-//		char a;
-//	};
-//
-//	union u u;
-//
-//
-//	enum day
-//	{
-//		mon = 1,tues,wed,thur,fri,saat,sun
-//	};
-//
-//	enum day d = 0;
-//
-//	printf("%d", wed);
-//
-//	return 0;
-//}
-
-//int main() {
-//
-//	union
-//	{
-//		int i;
-//		char j;
-//	}n;
-//
-//	n.i = 1;
-//	n.j = 0x00000002;
-//	printf("%d ", n.j);//取得的是低地址
-//
-//	return 0;
-//}
-
-
-
-//struct 
-//{
-//	int a;
-//}s;
-//
-//int main() {
-//
-//
-//	s.a = 1;
-//
-//	return 0;
-//}
-
-
-
-
-
-//struct gift_list
-//{
-//	int stock_number;//库存量
-//	double price; //定价
-//	int item_type;//商品类型
-//
-//	union {
-//		struct
-//		{
-//			char title[20];//书名
-//			char author[20];//作者
-//			int num_pages;//⻚数
-//		}book;
-//		struct
-//		{
-//			char design[30];//设计
-//		}mug;
-//		struct
-//		{
-//			char design[30];//设计
-//			int colors;//颜⾊
-//			int sizes;//尺⼨
-//		}shirt;
-//	}item;
-//};
-//
-//int main() {
-//	struct gift_list  gift = { .item.book.title = "红龙梦",
-//		.item.book.author = "罗贯中",.item.book.num_pages = 100 };
-//
-//	gift.item.book.num_pages = 99;
-//
-//	printf("%s %s %d", gift.item.book.title,
-//		gift.item.book.author,
-//		gift.item.book.num_pages);
-//
-//
-//	return 0;
-//}
-
-
-//union Un2
-//{
-//	short c[7];
-//	int i;
-//};
-//
-//int main() {
-//	union Un2 u = {0};
-//	printf("%zd", sizeof(union Un2));
-//	return 0;
-//}
-
-
-//struct s
-//{
-//	int a;
-//	char b;
-//	char c[9];
-//};
-//
-//
-//int main() {
-//	struct s s = { .c = "ald"  };
-//	s.a = 1;
-//	s.b = 'a';
-//	s.c = { "ald" };
-//	printf("%s", s.c);
-//	return 0;
-//}
-//int main() {
-//    // 定义匿名结构体
-//    struct {
-//        int x;
-//        int y;
-//    } point;
-//
-//    // 定义指针并赋值
-//    struct { int x; int y; } *p = &point;
-//
-//    // 通过指针赋值
-//    p->x = 12;
-//    p->y = 24;
-//
-//    printf("x = %d, y = %d\n", p->x, p->y);
-//}
-
-//struct s
-//{
-//	int a ;
-//	char b;
-//	char c[9];
-//}U2, U = { 1,'U',{"abcderg"} };
-//
-//U = { .a = 1,'U',{"abcderg"} };
-//
-//
-//
-//
-//struct
-//{
-//	int a;
-//	char b;
-//	char c[9];
-//};
-//
-//int main() {
-//	U2 = U;
-//	printf("%d %c %s", U2.a, U2.b, U2.c);
-//
-//	U.a = 2;
-//	U.b = 'U';
-//	U.c[9] = "abcderg";
-//
-//
-//	/*struct s s = { 1,'k',{"abcderg"} };
-//	printf("%d %c %s", s.a, s.b, s.c);
-//	printf("\n");
-//	struct s s1 = { 1,'P',{"higklnm"} };
-//	s = s1;
-//	printf("%d %c %s", s.a, s.b, s.c);
-//	printf("\n");
-//
-//	s.b = 'o';
-//	printf("%d %c %s", s.a, s.b, s.c);
-//	printf("\n");
-//
-//*/
-//
-//
-//
-//	return 0;
-//}
-//typedef struct s1
-//{
-//	char b;
-//	int a[6];
-//
-//}s1;
-//
-//void print(s1 * p) {
-//	printf("%c\n", p->b);
-//	for (int i = 0; i < 6; i++) {
-//		printf("%d\n", p->a[i]);
+//		putchar(c);
 //	}
+//	//判断是什么原因结束的
+//	if (ferror(fp))
+//		puts("I/O error when reading");
+//	else if (feof(fp))
+//		puts("End of file reached successfully");
+//	fclose(fp);
 //}
-//int main() {
-//	s1 s = { .b = 'M',{1,2,3,4,5,6} };
-//	print(&s);
-//	return 0;
-//}
-//typedef struct 
+
+//enum { SIZE = 5 };
+//int main(void)
 //{
-//	int data;
-//	struct Node* next;
-//} Node;
+//	double a[SIZE] = { 1.,2.,3.,4.,5. };
+//	FILE* fp = fopen("test.bin", "wb"); // 必须⽤⼆进制模式
+//	fwrite(a, sizeof * a, SIZE, fp); // 写 double 的数组
+//	fclose(fp);
 //
-//int main() {
-//
-//	/*stu.id = 'v';
-//	stu.age = 9;
-//	stu.name[100] = "xiao";*/
-//	Node m = { 6,NULL };
-//	Node n = { 3,&m };
-//
-//	printf("%d ",n.next->data);
-//
+//	double b[SIZE];
+//	fp = fopen("test.bin", "rb");
+//	size_t ret_code = fread(b, sizeof * b, SIZE, fp); // 读 double 的数组
+//	if (ret_code == SIZE) {
+//		puts("Array read successfully, contents: ");
+//		for (int n = 0; n < SIZE; ++n)
+//			printf("%f ", b[n]);
+//		putchar('\n');
+//	}
+//	else { // error handling
+//		if (feof(fp))
+//			printf("Error reading test.bin: unexpected end of file\n");
+//		else if (ferror(fp)) {
+//			perror("Error reading test.bin");
+//		}
+//	}
+//	fclose(fp);
+//}
+
+
+
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "w");
+//	fputs("abcdef", pf);//先将代码放在输出缓冲区
+//	printf("睡眠10秒-已经写数据了，打开test.txt⽂件，发现⽂件没有内容\n");
+//	Sleep(10000);
+//	printf("刷新缓冲区\n");
+//	fflush(pf);//刷新缓冲区时，才将输出缓冲区的数据写到⽂件（磁盘）
+//	//注：fflush 在⾼版本的VS上不能使⽤了
+//	printf("再睡眠10秒-此时，再次打开test.txt⽂件，⽂件有内容了\n");
+//	Sleep(10000);
+//	fclose(pf);
+//	//注：fclose在关闭⽂件的时候，也会刷新缓冲区
+//	pf = NULL;
 //	return 0;
 //}
 
+
+
+//#include <stdio.h>
+//
 //int main() {
-//	/*int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-//	int a = 99;*/
+//    // 将文件从 D:/CODE/C 移动回当前目录
+//    if (rename("D:/CODE/C/Test_9_10/newfile.txt","newfile.txt") == 0) {
+//        printf("File moved back successfully to current directory.\n");
+//    }
+//    else {
+//        perror("Error moving file back");
+//    }
 //
-//	int n = 0x00000001;
+//    return 0;
+//}
+
+
+
+//int main()
+//{
+//    int ret;
+//    char oldname[] = "file.txt";
+//    char newname[] = "newfile.txt";
 //
+//    ret = rename(oldname, newname);
 //
-//	char* p = &n;
-//	printf("%d", (char)n);
-//	return 0;
+//    if (ret == 0)
+//    {
+//        printf("文件重命名成功");
+//    }
+//    else
+//    {
+//        printf("错误：不能重命名该文件");
+//    }
+//
+//    return(0);
 //}
